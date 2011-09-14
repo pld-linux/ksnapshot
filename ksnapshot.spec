@@ -1,20 +1,20 @@
 %define		_state		stable
 %define		orgname		ksnapshot
-%define		qtver		4.7.3
+%define		qtver		4.7.4
 
 Summary:	K Desktop Environment - Snap Shot
 Summary(pl.UTF-8):	K Desktop Environment - Program do przechwytywania ekranu
 Name:		ksnapshot
-Version:	4.7.0
+Version:	4.7.1
 Release:	1
 License:	GPL
 Group:		X11/Applications/Graphics
 Source0:	ftp://ftp.kde.org/pub/kde/%{_state}/%{version}/src/%{orgname}-%{version}.tar.bz2
-# Source0-md5:	fb58cb99c18a04de36ff2be9a50ca55a
+# Source0-md5:	2f080edabaef56718121fe2f9abaa3ea
 URL:		http://www.kde.org/
 BuildRequires:	kde4-kdelibs-devel
 BuildRequires:	libjpeg-devel
-Obsoletes:	kde4-kdegraphics-ksnapshot
+Obsoletes:	kde4-kdegraphics-ksnapshot < 4.6.99
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,9 +46,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
-
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
 
 %files
 %defattr(644,root,root,755)
